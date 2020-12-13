@@ -41,16 +41,13 @@ elForm.addEventListener('submit', function (evt) {
     var resultInNumber = Number(elInput.value);
 
 
-    if (raqam === 0) {
+    if (raqam === 1) {
         result.textContent = 'Yutqizdingiz!';
         result.style.color = 'red';
         return;
     }
 
-    if (raqam) {
-        raqam--;
-        decrement.textContent = raqam;
-    }
+    decrement.textContent = --raqam;
 
     totalNumber.push(resultInNumber);
     elItarations.textContent = totalNumber.join(', ');
