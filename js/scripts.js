@@ -23,7 +23,7 @@ var starter = function () {
     elStart.addEventListener('click', function () {
         elementStart.classList.add('d-flex');
         elForm.classList.remove('mb-5');
-        elInput.classList.remove('disabled');
+        elInput.disabled = false;
         order.textContent = '';
         order.classList.remove('mb-4');
     })
@@ -41,13 +41,24 @@ elForm.addEventListener('submit', function (evt) {
     var resultInNumber = Number(elInput.value);
 
 
-    if (raqam === 1) {
+    if (raqam === 0) {
         result.textContent = 'Yutqizdingiz!';
-        result.style.color = 'red';
+        result.style.color = 'black';
+        document.body.style.backgroundColor = '#ff362f';
+        elInput.value = '';
         return;
     }
 
-    decrement.textContent = --raqam;
+    raqam--;
+    decrement.textContent = raqam;
+
+    if (raqam === 0) {
+        result.textContent = 'Yutqizdingiz!';
+        result.style.color = 'black';
+        document.body.style.backgroundColor = '#ff362f';
+        elInput.value = '';
+        return;
+    }
 
     totalNumber.push(resultInNumber);
     elItarations.textContent = totalNumber.join(', ');
@@ -57,8 +68,9 @@ elForm.addEventListener('submit', function (evt) {
     if (level === 1) {
         if (resultInNumber === random) {
             result.textContent = 'Winner';
-            result.style.color = 'green';
-            elInput.classList.add('disabled');
+            result.style.color = 'black';
+            document.body.style.backgroundColor = '#00dc00';
+            elInput.disabled = true;
         }
         else if (resultInNumber > random) {
             result.textContent = `Siz kiritgan raqam katta!`;
@@ -73,7 +85,7 @@ elForm.addEventListener('submit', function (evt) {
         if (resultInNumber === randomLevel) {
             result.textContent = 'Winner';
             result.style.color = 'green';
-            elInput.classList.add('disabled');
+            elInput.disabled = true;
         }
         else if (resultInNumber > randomLevel) {
             result.textContent = `Siz kiritgan raqam katta!`;
@@ -93,6 +105,8 @@ elRound.addEventListener('click', function () {
         decrement.textContent = raqam;
         totalNumber = [];
         elItarations.textContent = '';
+        document.body.style.backgroundColor = '#deff4b';
+        result.textContent = '';
     }
 })
 
@@ -107,9 +121,10 @@ elNext.addEventListener('click', function () {
         document.body.style.backgroundColor = 'lightblue';
         elementStart.classList.remove('d-flex');
         elForm.classList.add('mb-5');
-        elInput.classList.add('disabled');
+        elInput.disabled = true;
         order.textContent = 'Boshlash uchun Startni bosing!';
         order.classList.add('mb-4');
+        elInput.disabled = false;
     }
 
 
