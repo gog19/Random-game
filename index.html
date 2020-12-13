@@ -11,19 +11,27 @@
 
 <body>
 
-    <section>
+    <section class="section">
         <div class="container d-flex align-items-center flex-column mt-5">
             <h1 class="h2 mb-5">Kompyuter o`ylagan sonni topa olasizmi?</h1>
-            <form class="mt-4 form-game align-items-center d-flex" action="">
-                <label class="mr-3" for="">1 va 100 orasidagi sonni toping</label>
-                <input class="form-input" type="number" step="any">
+            <h2 class="mt-0 mb-2">Level <span class="levels"></span></h2>
+            <form class="mt-4 form-game align-items-center d-flex mb-5" action="">
+                <label class="number-level mr-3" for="">1 va 100 orasidagi sonni kiriting</label>
+                <input class="form-input disabled" type="number" step="any">
                 <button class="ml-4 btn btn-primary">Tekshirish</button>
             </form>
-            <div class="d-flex flex-column align-items-center mt-5">
-                <h3 class="m-0 mb-2">Urinishlar soni <span class="decrement"></span>ta</h3>
-                <p class="h3 mt-3 mb-5">Siz kiritgan son: <span class="game-span text-primary"></span></p>
-                <span class="game-result"></span>
-                <button class="round btn btn-warning small">Qayta urinish</button>
+            <div class="d-flex flex-column align-items-center">
+                <div class="start-wrapper d-none flex-column align-items-center justify-content-center mt-5">
+                    <h3 class="m-0 mb-3">Urinishlar soni <span class="decrement"></span>ta</h3>
+                    <p class="h3 mb-0">Siz kiritgan son: <span class="game-span text-primary"></span></p>
+                    <output class="game-result h1 m-0 py-4 font-weight-bold"></output>
+                </div>
+                <span class="order h4 mb-4">Boshlash uchun Startni bosing!</span>
+                <div>
+                    <button class="round btn btn-warning small mx-2">Qayta urinish</button>
+                    <button class="start btn btn-dark small mx-2">Start</button>
+                    <button class="next btn btn-success small mx-2">Keyingi level</button>
+                </div>
             </div>
         </div>
     </section>
